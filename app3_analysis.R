@@ -236,11 +236,17 @@ scores <- c(hepatotox_jaccard,scores)
 ranks <- rank(scores)/length(scores)
 pvals <- pnorm(scores, lower.tail = F)
 
+input_hepatotox <- intersect(hepatotox_genes, Genes)
+                           
+if(length(input_hepatotox)==0){
+  input_hepatotox <- ""
+}
+
 hepatotoxicity_table <- data.frame("Adverse drug reaction"="CTD_Chemical induced liver injury full signature",
                                    "Jaccard score"=hepatotox_jaccard,
                                    "Jaccard score rank"=ranks[1],
                                    "Jaccard p value"=pvals[1],
-                                   "ADR genes and input gene overlap"=do.call("paste",c(intersect(hepatotox_genes, Genes),
+                                   "ADR genes and input gene overlap"=do.call("paste",c(input_hepatotox,
                                                                                         list("sep"=", "))))
 if(exists("sessionID")){
   write.table(result, paste0("/home/www/abhatta3-webserver/Data/Pipeline/Results/shinyapp3/",sessionID, "_app3result.txt"), 
