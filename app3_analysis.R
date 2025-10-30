@@ -170,7 +170,7 @@ for(r in 1:nrow(Humanframe)){
   }
   
   druggenes_up <- Humangenesup[[r]]
-  druggenes_down <- Humangenesup[[r]]
+  druggenes_down <- Humangenesdown[[r]]
   if(bothind){
     Jaccardscore[r] <- Jaccard2(druggenes_up, diseasegenes_up) + Jaccard2(druggenes_down, diseasegenes_down)-Jaccard2(druggenes_up,diseasegenes_down)-Jaccard2(druggenes_down,diseasegenes_up)
     OR[r] <- Jaccard3(unique(c(druggenes_up,druggenes_down)),unique(c(diseasegenes_up,diseasegenes_down)),nrow(HUGO_symbols2))[[2]]
