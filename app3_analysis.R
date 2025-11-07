@@ -4,7 +4,6 @@
 # Genes_up <- Genes_up$GENE
 # Genes_down <- read.delim("./Data/Pipeline/Resources/shinyapp3_temp/sessionID_down_genes.txt", stringsAsFactors = FALSE)
 # Genes_down <- Genes_down$GENE
-.libPaths(c("/home/www/abhatta3-webserver/Rnew2/lib64/R/library/",.libPaths()))
 library(GeneOverlap)
 Jaccard2 <- function(set1,set2){
   I <- length(intersect(set1,set2))
@@ -17,9 +16,9 @@ Jaccard3 <- function(set1,set2,genomesize){
   go.obj <- testGeneOverlap(go.obj)
   return(list(go.obj@Jaccard, go.obj@odds.ratio, go.obj@pval))
 }
-load("/home/www/abhatta3-webserver/include/pharmomics/Jaccard_app_databasev3_No_GeoDE.rda")
-ADR_scores <- readRDS("/home/www/abhatta3-webserver/include/pharmomics/ADR_scores.rds")
-load("/home/www/abhatta3-webserver/include/pharmomics/hepatotox_genes.rda")
+load("/var/www/html/include/pharmomics/Jaccard_app_databasev3_No_GeoDE.rda")
+ADR_scores <- readRDS("/var/www/html/include/pharmomics/ADR_scores.rds")
+load("/var/www/html/include/pharmomics/hepatotox_genes.rda")
 cat("5%\n")
 
 count <- 5
@@ -237,7 +236,7 @@ ranks <- rank(scores)/length(scores)
 pvals <- pnorm(scores, lower.tail = F)
 
 input_hepatotox <- intersect(hepatotox_genes, Genes)
-                           
+
 if(length(input_hepatotox)==0){
   input_hepatotox <- ""
 }
@@ -249,9 +248,9 @@ hepatotoxicity_table <- data.frame("Adverse drug reaction"="CTD_Chemical induced
                                    "ADR genes and input gene overlap"=do.call("paste",c(input_hepatotox,
                                                                                         list("sep"=", "))))
 if(exists("sessionID")){
-  write.table(result, paste0("/home/www/abhatta3-webserver/Data/Pipeline/Results/shinyapp3/",sessionID, "_app3result.txt"), 
+  write.table(result, paste0("/var/www/html/Data/Pipeline/Results/shinyapp3/",sessionID, "_app3result.txt"), 
               row.names=FALSE, quote = FALSE, sep ="\t")
-  write.table(hepatotoxicity_table, paste0("/home/www/abhatta3-webserver/Data/Pipeline/Results/shinyapp3/",sessionID, "_app3result_hepatotox.txt"), 
+  write.table(hepatotoxicity_table, paste0("/var/www/html/Data/Pipeline/Results/shinyapp3/",sessionID, "_app3result_hepatotox.txt"), 
               row.names=FALSE, quote = FALSE, sep ="\t")
 }
 
