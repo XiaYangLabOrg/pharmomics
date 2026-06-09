@@ -3,11 +3,11 @@ PharmOmics app2 Instructions
 2.	Download the following directory:
 
 3.	Modify paths and run: (optional)
- 	“Prepare_APP2_human_genes.R”
+ 	“Prepare_APP2_human_genes_interactive.R”
 -	This creates genes files to input into PharmOmics from your wKDA results (from rat - change if from other species)
 
 4.	Modify and run: (optional)
-“Prepare_SCING_network_human.R”
+“Prepare_SCING_network_human_interactive.R”
 -	This creates the SCING network file you will need for the next step based on SCING output (from rat - change if from other species)
 
 5.	Modify and run:
