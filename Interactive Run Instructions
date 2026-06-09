@@ -1,0 +1,23 @@
+PharmOmics app2 Instructions
+1.	Run SCING and wKDA (optional)
+2.	Download the following directory:
+
+3.	Modify paths and run: (optional)
+ 	“Prepare_APP2_human_genes.R”
+-	This creates genes files to input into PharmOmics from your wKDA results
+
+4.	Modify and run: (optional)
+“Prepare_SCING_network_human.R”
+-	This creates the SCING network file you will need for the next step based on SCING output
+
+5.	Modify and run:
+“app2_seg_prepare_interactive.R”
+-	This creates a network file based on your genes files that app2 needs to run
+
+6.	Modify and run:
+“app2_seg_run_interactive.R”
+-	This runs app2 and makes 14 output files
+
+7.	Modify and run:
+“Merge_results_app2_seg_run_interactive.R”
+-	This merges, ranks app2 results and prepares them for output in one file
