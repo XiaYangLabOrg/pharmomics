@@ -3,4 +3,4 @@ A species- and tissue-specific drug transcriptomic knowledgebase and analytical 
 
 Code added is directly from the web server. Efforts to modularize the code are currently being done and functions that can be easily used by the public will be released soon.
 
-To run code interactively, please follow: "Interactive Run Instructions"
+To run code interactively, please follow: "Interactive app2 Run Instructions"
